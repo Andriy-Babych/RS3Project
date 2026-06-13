@@ -1,1 +1,101 @@
 @import "tailwindcss";
+
+:root {
+  /* =========================
+     Fonts
+  ========================= */
+
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* =========================
+     Colors
+  ========================= */
+
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-surface-hover: #334155;
+
+  --color-primary: #f59e0b;
+  --color-primary-hover: #d97706;
+
+  --color-text: #f8fafc;
+  --color-text-secondary: #94a3b8;
+
+  --color-success: #22c55e;
+  --color-error: #ef4444;
+
+  --color-border: #475569;
+
+  /* =========================
+     Ratings
+  ========================= */
+
+  --rating-bg: rgba(34, 197, 94, 0.15);
+  --rating-text: #22c55e;
+
+  /* =========================
+     Inputs
+  ========================= */
+
+  --input-bg: #1e293b;
+  --input-border: #475569;
+  --input-border-focus: #f59e0b;
+  --input-text: #f8fafc;
+  --input-placeholder: #64748b;
+
+  /* =========================
+     Cards
+  ========================= */
+
+  --card-bg: #1e293b;
+  --card-radius: 16px;
+  --card-padding: 1rem;
+
+  --card-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.2);
+
+  /* =========================
+     Buttons
+  ========================= */
+
+  --button-bg: #f59e0b;
+  --button-bg-hover: #d97706;
+  --button-text: #0f172a;
+
+  /* =========================
+     Layout
+  ========================= */
+
+  --container-width: 1200px;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* =========================
+     Transitions
+  ========================= */
+
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+}
+
+.App-header{
+  background: var(--color-surface);
+}
+
+.search-button{
+  background: var(--button-bg);
+  color: var(--button-text);
+}
+
+.search-button:hover{
+  background: var(--button-bg-hover);
+}
+
+.App-main{
+  background: var(--color-surface);
+}
