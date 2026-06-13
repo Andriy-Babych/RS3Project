@@ -10,11 +10,11 @@ import type { MovieData } from './types.ts'
 
 function App() {
   const [searchQuerry, setSearchQuery] = useState<string>('');
-  const [movies, setMovies] = useState<MovieData[]>([{
-    title: 'Inception',
-    year: 2010,
-    genre: 'Science Fiction',
-    posterUrl: 'https://m.media-amazon.com/images/I/51s+6Z1k5-L._AC_.jpg',
+  const [movies] = useState<MovieData[]>([{
+    title: 'Oppenheimer',
+    year: 2023,
+    genre: 'Biography, Drama, History',
+    posterUrl: 'https://creativereview.imgix.net/uploads/2023/12/Oppenheimer.jpg?auto=compress,format&crop=faces,entropy,edges&fit=crop&q=60&w=1263&h=2000',
     rating: 8.8
   }])
 
