@@ -22,7 +22,7 @@ function App() {
     <div className="App flex flex-col items-start my-8 mx-8 gap-8">
 
       <SearchBar searchQuery={searchQuerry} setSearchQuery={setSearchQuery} />
-      <ResultsSection movies={movies} />
+      <ResultsSection movies={movies} searchQuery={searchQuerry} />
     </div>
   )
 }
