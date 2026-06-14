@@ -1,4 +1,4 @@
-import type { MovieData } from '../types.ts';
+import type { MovieData, TMDBMovie } from '../types.ts';
 
 const accessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
 
@@ -21,7 +21,7 @@ const getTopMovies = async () => {
 
   const data = await response.json();
 
-  const movies: MovieData[] = data.results.map((movie: any) => ({
+  const movies: MovieData[] = data.results.map((movie: TMDBMovie) => ({
     id: movie.id,
     title: movie.title,
     year: Number(movie.release_date?.split('-')[0]) || 0,
@@ -33,13 +33,13 @@ const getTopMovies = async () => {
   }));
 
   return movies;
-}
+};
 
 
 export const searchMovies = async (query: string) => {
 
   if (!query.trim()) {
-    try{
+    try {
       const topMovies = await getTopMovies();
       return topMovies;
     } catch (error) {
@@ -59,7 +59,7 @@ export const searchMovies = async (query: string) => {
     },
   };
 
-  
+
   const response = await fetch(url, options);
 
   if (!response.ok) {
@@ -68,7 +68,7 @@ export const searchMovies = async (query: string) => {
 
   const data = await response.json();
 
-  const movies: MovieData[] = data.results.map((movie: any) => ({
+  const movies: MovieData[] = data.results.map((movie: TMDBMovie) => ({
     id: movie.id,
     title: movie.title,
     year: Number(movie.release_date?.split('-')[0]) || 0,
