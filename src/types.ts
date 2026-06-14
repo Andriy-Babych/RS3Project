@@ -1,7 +1,8 @@
 export type MovieData = {
-  title: string
-  year: number
-  genre: string
-  posterUrl: string
-  rating: number
+    id: number
+    title: string
+    year: number
+    posterUrl: string
+    rating: number
+    description: string
 }
