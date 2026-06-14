@@ -22,8 +22,8 @@ export default function ResultsSection({ movies, searchQuery, isLoading, error }
                     <p className="text-lg text-gray-500">Loading...</p>
                 ) : error ? (
                     <p className="text-lg text-red-500">{error}</p>
-                ) : filteredMovies.length > 0 ? filteredMovies.map((movie, index) => (
-                    <FilmCard key={index} movie={movie} />
+                ) : filteredMovies.length > 0 ? filteredMovies.map((movie) => (
+                    <FilmCard key={movie.id} movie={movie} />
                 )) : (
                     <p className="text-lg text-gray-500">No movies found.</p>
                 )}

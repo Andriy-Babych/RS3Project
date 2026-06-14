@@ -35,6 +35,17 @@ const getTopMovies = async () => {
   return movies;
 };
 
+const mapTMDBMovieToMovieData = (movie: TMDBMovie): MovieData => ({
+  id: movie.id,
+  title: movie.title,
+  year: Number(movie.release_date?.split('-')[0]) || 0,
+  posterUrl: movie.poster_path
+    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+    : '',
+  rating: parseFloat(movie.vote_average.toFixed(1)),
+  description: movie.overview.length > 150 ? movie.overview.substring(0, 150) + '...' : movie.overview,
+});
+
 
 export const searchMovies = async (query: string) => {
 
@@ -43,8 +54,7 @@ export const searchMovies = async (query: string) => {
       const topMovies = await getTopMovies();
       return topMovies;
     } catch (error) {
-      console.error('Error fetching top movies:', error);
-      return [];
+      throw new Error('Error fetching top movies');
     }
   }
 
@@ -68,16 +78,7 @@ export const searchMovies = async (query: string) => {
 
   const data = await response.json();
 
-  const movies: MovieData[] = data.results.map((movie: TMDBMovie) => ({
-    id: movie.id,
-    title: movie.title,
-    year: Number(movie.release_date?.split('-')[0]) || 0,
-    posterUrl: movie.poster_path
-      ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-      : '',
-    rating: parseFloat(movie.vote_average.toFixed(1)),
-    description: movie.overview.length > 150 ? movie.overview.substring(0, 150) + '...' : movie.overview,
-  }));
+  const movies: MovieData[] = data.results.map(mapTMDBMovieToMovieData);
 
   return movies;
 };
