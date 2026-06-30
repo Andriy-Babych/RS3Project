@@ -16,3 +16,16 @@ export type TMDBMovie = {
     vote_average: number
     overview: string
 }
+
+export type TMDBResponse = {
+    page: number
+    results: TMDBMovie[];
+    total_pages: number
+    total_results: number
+};
+
+export type MovieSearchResponse = {
+  movies: MovieData[];
+  currentPage: number;
+  totalPages: number;
+};

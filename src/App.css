@@ -87,15 +87,6 @@
   background: var(--color-surface);
 }
 
-.search-button{
-  background: var(--button-bg);
-  color: var(--button-text);
-}
-
-.search-button:hover{
-  background: var(--button-bg-hover);
-}
-
 .App-main{
   background: var(--color-surface);
 }

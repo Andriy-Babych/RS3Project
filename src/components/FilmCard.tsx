@@ -7,11 +7,17 @@ type FilmCardProps = {
 export default function FilmCard({ movie }: FilmCardProps) {
   return (
     <div className="group relative h-72 overflow-hidden rounded-2xl border border-slate-700 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-      <img
-        src={movie.posterUrl}
-        alt={movie.title}
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-      />
+      {movie.posterUrl ? (
+        <img
+          src={movie.posterUrl}
+          alt={movie.title}
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center bg-slate-800 text-center text-sm text-slate-400">
+          No poster available
+        </div>
+      )}
 
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
 
